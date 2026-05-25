@@ -63,7 +63,7 @@ class BarangController {
 
                 move_uploaded_file(
                     $_FILES['gambar']['tmp_name'],
-                    '../uploads/' . $gambar
+                    '../app/assets/uploads/' . $gambar
                 );
             }
 
@@ -128,7 +128,7 @@ class BarangController {
 
                 move_uploaded_file(
                     $_FILES['gambar']['tmp_name'],
-                    '../uploads/' . $gambar
+                    '../app/assets/uploads/' . $gambar
                 );
             }
 
