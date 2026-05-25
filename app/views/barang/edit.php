@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
 <title>Edit Barang</title>
 
 <style>
@@ -76,7 +74,6 @@ button:hover{
 }
 
 </style>
-
 </head>
 
 <body>
