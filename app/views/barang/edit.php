@@ -1,157 +1,78 @@
-```php id="8nqz5u"
 <!DOCTYPE html>
 <html>
 
 <head>
 
-<title>Sistem Pendataan Barang</title>
+<title>Edit Barang</title>
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial;
-}
-
 body{
-    display:flex;
-    background:#f4f6fb;
-}
-
-.sidebar{
-    width:220px;
-    height:100vh;
-    background:white;
-    border-right:1px solid #e5e8f0;
-    padding-top:20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.sidebar h2{
-    text-align:center;
-    color:#6c8bd8;
-    margin-bottom:30px;
-}
-
-.menu{
-    list-style:none;
-}
-
-.menu li{
-    margin:10px 15px;
-}
-
-.menu li a{
-    display:flex;
-    justify-content:center;
-    padding:10px;
-    text-decoration:none;
-    color:#555;
-    border-radius:8px;
-    transition:0.3s;
-}
-
-.menu li a:hover{
-    background:#eef3ff;
-}
-
-.active{
-    background:linear-gradient(90deg,#7fa1ff,#9ab2ff);
-    color:white !important;
-}
-
-.logout-container{
-    padding:20px;
-}
-
-.logout-btn{
-    display:block;
-    text-align:center;
-    background:#e74c3c;
-    color:white;
-    padding:10px;
-    border-radius:8px;
-    text-decoration:none;
-}
-
-.main{
-    flex:1;
-}
-
-.header{
-    background:#8fa8d6;
-    color:white;
-    padding:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    font-family:Arial;
+    background:#eef2f7;
 }
 
 .container{
-    padding:30px;
+    width:420px;
+    margin:auto;
+    margin-top:60px;
 }
 
 .card{
     background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    padding:30px;
+    border-radius:14px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
-table{
+h2{
+    margin-bottom:20px;
+    color:#2c3e50;
+}
+
+label{
+    font-weight:600;
+    color:#555;
+}
+
+input{
     width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
-}
-
-th{
-    background:#8ea9db;
-    color:white;
-    padding:12px;
-    text-align:center;
-}
-
-td{
-    padding:12px;
-    border-bottom:1px solid #eee;
-    text-align:center;
-}
-
-tr:hover{
-    background:#f8f9ff;
-}
-
-.img-table{
-    width:60px;
-    height:60px;
-    object-fit:cover;
+    padding:10px;
+    margin-top:6px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
     border-radius:6px;
 }
 
-.action{
-    display:flex;
-    justify-content:center;
-    gap:8px;
+img{
+    width:100px;
+    border-radius:8px;
+    margin-bottom:15px;
 }
 
-.action a{
-    padding:6px 10px;
-    border-radius:6px;
+.form-action{
+    text-align:right;
+    margin-top:15px;
+}
+
+button{
+    background:#6c8ecf;
     color:white;
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#5a78b5;
+}
+
+.back{
+    margin-left:10px;
     text-decoration:none;
-    font-size:14px;
-}
-
-.edit{
-    background:#f4b400;
-}
-
-.delete{
-    background:#e74c3c;
+    color:#555;
+    font-weight:500;
 }
 
 </style>
@@ -160,129 +81,85 @@ tr:hover{
 
 <body>
 
-<div class="sidebar">
+<div class="container">
 
-    <div>
+    <div class="card">
 
-        <h2>Monitoring</h2>
+        <h2>Edit Barang</h2>
 
-        <ul class="menu">
+        <form method="POST" enctype="multipart/form-data">
 
-            <li>
-                <a href="index.php" class="active">
-                    📦 Data Barang
+            <label>Nama Barang</label>
+
+            <input
+                type="text"
+                name="nama_barang"
+                value="<?= $row['nama_barang']; ?>"
+                required
+            >
+
+            <label>Jumlah</label>
+
+            <input
+                type="number"
+                name="jumlah"
+                value="<?= $row['jumlah']; ?>"
+                required
+            >
+
+            <label>Harga</label>
+
+            <input
+                type="number"
+                name="harga"
+                value="<?= $row['harga']; ?>"
+                required
+            >
+
+            <label>Tanggal Masuk</label>
+
+            <input
+                type="date"
+                name="tanggal_masuk"
+                value="<?= $row['tanggal_masuk']; ?>"
+                required
+            >
+
+            <label>Kategori</label>
+
+            <input
+                type="text"
+                name="kategori"
+                value="<?= $row['kategori']; ?>"
+                required
+            >
+
+            <label>Gambar Lama</label>
+
+            <br>
+
+            <img src="../app/assets/uploads/<?= $row['gambar']; ?>">
+
+            <label>Ganti Gambar</label>
+
+            <input
+                type="file"
+                name="gambar"
+            >
+
+            <div class="form-action">
+
+                <button type="submit" name="update">
+                    ⟳ Update
+                </button>
+
+                <a href="index.php" class="back">
+                    ↩ Kembali
                 </a>
-            </li>
 
-            <li>
-                <a href="tambah.php">
-                    ✚ Tambah Barang
-                </a>
-            </li>
+            </div>
 
-        </ul>
-
-    </div>
-
-    <div class="logout-container">
-
-        <a href="logout.php" class="logout-btn">
-            Logout
-        </a>
-
-    </div>
-
-</div>
-
-<div class="main">
-
-    <div class="header">
-
-        <div>
-            Sistem Manajemen Barang
-        </div>
-
-        <div>
-            👋 Selamat Datang,
-            <?= $_SESSION['username']; ?>
-        </div>
-
-    </div>
-
-    <div class="container">
-
-        <div class="card">
-
-            <h2>Data Barang</h2>
-
-            <table>
-
-                <tr>
-                    <th>ID</th>
-                    <th>Gambar</th>
-                    <th>Nama</th>
-                    <th>Jumlah</th>
-                    <th>Harga</th>
-                    <th>Tanggal</th>
-                    <th>Kategori</th>
-                    <th>Aksi</th>
-                </tr>
-
-                <?php while($row = $data->fetch_assoc()): ?>
-
-                    <tr>
-
-                        <td><?= $row['id']; ?></td>
-
-                        <td>
-
-                            <img
-                                src="../app/assets/uploads/<?= $row['gambar']; ?>"
-                                class="img-table"
-                            >
-
-                        </td>
-
-                        <td><?= $row['nama_barang']; ?></td>
-
-                        <td><?= $row['jumlah']; ?></td>
-
-                        <td><?= $row['harga']; ?></td>
-
-                        <td><?= $row['tanggal_masuk']; ?></td>
-
-                        <td><?= $row['kategori']; ?></td>
-
-                        <td>
-
-                            <div class="action">
-
-                                <a
-                                    href="edit.php?id=<?= $row['id']; ?>"
-                                    class="edit"
-                                >
-                                    Edit
-                                </a>
-
-                                <a
-                                    href="hapus.php?id=<?= $row['id']; ?>"
-                                    class="delete"
-                                    onclick="return confirm('Hapus data?')"
-                                >
-                                    Hapus
-                                </a>
-
-                            </div>
-
-                        </td>
-
-                    </tr>
-
-                <?php endwhile; ?>
-
-            </table>
-
-        </div>
+        </form>
 
     </div>
 
@@ -290,4 +167,3 @@ tr:hover{
 
 </body>
 </html>
-```
