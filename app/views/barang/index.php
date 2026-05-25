@@ -1,3 +1,4 @@
+```php id="efkjtu"
 <!DOCTYPE html>
 <html>
 <head>
@@ -151,121 +152,123 @@ td{
 
 <div class="sidebar">
 
-<div>
+    <div>
 
-<h2>Monitoring</h2>
+        <h2>Monitoring</h2>
 
-<ul class="menu">
+        <ul class="menu">
 
-<li>
-<a href="index.php" class="active">
-📦 Data Barang
-</a>
-</li>
+            <li>
+                <a href="index.php" class="active">
+                    📦 Data Barang
+                </a>
+            </li>
 
-<li>
-<a href="tambah.php">
-✚ Tambah Barang
-</a>
-</li>
+            <li>
+                <a href="tambah.php">
+                    ✚ Tambah Barang
+                </a>
+            </li>
 
-</ul>
+        </ul>
 
-</div>
+    </div>
 
-<div class="logout-container">
-<a href="logout.php" class="logout-btn">
-Logout
-</a>
-</div>
+    <div class="logout-container">
+
+        <a href="logout.php" class="logout-btn">
+            Logout
+        </a>
+
+    </div>
 
 </div>
 
 <div class="main">
 
-<div class="header">
+    <div class="header">
 
-<div>
-Sistem Manajemen Barang
-</div>
+        <div>
+            Sistem Manajemen Barang
+        </div>
 
-<div>
-👋 Selamat Datang,
-<?= $_SESSION['username']; ?>
-</div>
+        <div>
+            👋 Selamat Datang,
+            <?= $_SESSION['username']; ?>
+        </div>
 
-</div>
+    </div>
 
-<div class="container">
+    <div class="container">
 
-<div class="card">
+        <div class="card">
 
-<h2>Data Barang</h2>
+            <h2>Data Barang</h2>
 
-<table>
+            <table>
 
-<tr>
-<th>ID</th>
-<th>Gambar</th>
-<th>Nama</th>
-<th>Jumlah</th>
-<th>Harga</th>
-<th>Tanggal</th>
-<th>Kategori</th>
-<th>Aksi</th>
-</tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Gambar</th>
+                    <th>Nama</th>
+                    <th>Jumlah</th>
+                    <th>Harga</th>
+                    <th>Tanggal</th>
+                    <th>Kategori</th>
+                    <th>Aksi</th>
+                </tr>
 
-<?php while($row = $data->fetch_assoc()): ?>
+                <?php while($row = $data->fetch_assoc()): ?>
 
-<tr>
+                <tr>
 
-<td><?= $row['id']; ?></td>
+                    <td><?= $row['id']; ?></td>
 
-<td>
-<img
-src="../app/assets/uploads/<?= $row['gambar']; ?>"
-class="img-table"
->
-</td>
+                    <td>
+                        <img
+                            src="../app/assets/uploads/<?= $row['gambar']; ?>"
+                            class="img-table"
+                        >
+                    </td>
 
-<td><?= $row['nama_barang']; ?></td>
-<td><?= $row['jumlah']; ?></td>
-<td><?= $row['harga']; ?></td>
-<td><?= $row['tanggal_masuk']; ?></td>
-<td><?= $row['kategori']; ?></td>
+                    <td><?= $row['nama_barang']; ?></td>
+                    <td><?= $row['jumlah']; ?></td>
+                    <td><?= $row['harga']; ?></td>
+                    <td><?= $row['tanggal_masuk']; ?></td>
+                    <td><?= $row['kategori']; ?></td>
 
-<td>
+                    <td>
 
-<div class="action">
+                        <div class="action">
 
-<a
-href="edit.php?id=<?= $row['id']; ?>"
-class="edit"
->
-Edit
-</a>
+                            <a
+                                href="edit.php?id=<?= $row['id']; ?>"
+                                class="edit"
+                            >
+                                Edit
+                            </a>
 
-<a
-href="hapus.php?id=<?= $row['id']; ?>"
-class="delete"
-onclick="return confirm('Hapus data?')"
->
-Hapus
-</a>
+                            <a
+                                href="hapus.php?id=<?= $row['id']; ?>"
+                                class="delete"
+                                onclick="return confirm('Hapus data?')"
+                            >
+                                Hapus
+                            </a>
 
-</div>
+                        </div>
 
-</td>
+                    </td>
 
-</tr>
+                </tr>
 
-<?php endwhile; ?>
+                <?php endwhile; ?>
 
-</table>
+            </table>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </div>
 
