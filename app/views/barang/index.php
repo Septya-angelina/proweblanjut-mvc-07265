@@ -223,7 +223,7 @@ Sistem Manajemen Barang
 
 <td>
 <img
-src="../uploads/<?= $row['gambar']; ?>"
+src="../app/assets/uploads/<?= $row['gambar']; ?>"
 class="img-table"
 >
 </td>
