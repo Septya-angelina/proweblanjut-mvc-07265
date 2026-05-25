@@ -130,7 +130,7 @@ required
 <br>
 
 <img
-src="../uploads/<?= $row['gambar']; ?>"
+src="../app/assets/uploads/<?= $row['gambar']; ?>"
 >
 
 <label>Ganti Gambar</label>
