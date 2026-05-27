@@ -1,4 +1,3 @@
-```php id="efkjtu"
 <!DOCTYPE html>
 <html>
 <head>
